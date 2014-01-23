@@ -36,7 +36,6 @@ cp -a /vagrant/php.ini /etc/php.ini
 # Apache
 #
 cp -a /vagrant/httpd.conf /etc/httpd/conf/
-cp -a /vagrant/smile_id.conf /etc/httpd/conf.d/
 /sbin/service httpd restart
 /sbin/chkconfig httpd on
 
