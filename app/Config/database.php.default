@@ -49,20 +49,22 @@
 class DATABASE_CONFIG {
 
 	public $default = array(
-		'datasource' => 'Database/Postgres',
+		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'login' => 'vagrant',
-		'password' => 'password',
+		'login' => 'root',
+		'password' => '',
 		'database' => 'app',
 		'prefix' => '',
+		'encoding' => 'utf8',
 	);
 
 	public $test = array(
-		'datasource' => 'Database/Postgres',
+		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'login' => 'vagrant',
-		'password' => 'password',
+		'login' => 'root',
+		'password' => '',
 		'database' => 'app_test',
 		'prefix' => '',
+		'encoding' => 'utf8',
 	);
 }

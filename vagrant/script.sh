@@ -74,7 +74,6 @@ cp -a /vagrant/my.conf /etc/my.conf
 /sbin/service mysqld restart
 /sbin/chkconfig mysqld on
 
-#mysql -u root -e "grant all privileges on *.* to apsim@localhost identified by 'apsim'"
 mysql -u root -e "create database app"
 mysql -u root -e "create database test_app"
 
