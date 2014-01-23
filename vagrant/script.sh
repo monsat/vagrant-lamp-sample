@@ -85,10 +85,10 @@ if [ -f /share/composer.json ]; then
   cd /share && curl -s http://getcomposer.org/installer | php
   /usr/bin/php /share/composer.phar install --dev
   # cakephp
-  mkdir -p /share/lib && cd /share/lib && ln -s ../Vendor/pear-pear.cakephp.org/CakePHP/Cake .
+  #mkdir -p /share/lib && cd /share/lib && ln -s ../Vendor/pear-pear.cakephp.org/CakePHP/Cake .
 fi
 
-cp -a /share/app/Config/database.php.default /share/app/Config/database.php
-cp -a /share/app/Config/bootstrap.php.default /share/app/Config/bootstrap.php
+#cp -a /share/app/Config/database.php.default /share/app/Config/database.php
+#cp -a /share/app/Config/bootstrap.php.default /share/app/Config/bootstrap.php
 #cp -a /share/app/Config/email.php.default /share/app/Config/email.php
 
