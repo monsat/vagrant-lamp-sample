@@ -26,3 +26,9 @@ $ vagrant up
 
 http://192.168.33.40/
 
+## Before starting your own project
+
+You need to
+
+- change security salt and security cipher seed on app/Config/core.php
+- change hostname and vbname on vagrant/Vagrantfile
