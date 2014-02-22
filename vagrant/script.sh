@@ -69,13 +69,14 @@ cp -a /vagrant/httpd.conf /etc/httpd/conf/
 #
 # MySQL
 #
-yum -y install mysql-server
-cp -a /vagrant/my.conf /etc/my.conf
+yum -y install http://repo.mysql.com/mysql-community-release-el6-4.noarch.rpm
+yum -y install mysql-community-server
+#cp -a /vagrant/my.conf /etc/my.conf
 /sbin/service mysqld restart
 /sbin/chkconfig mysqld on
 
-mysql -u root -e "create database app"
-mysql -u root -e "create database test_app"
+mysql -u root -e "create database app default charset utf8"
+mysql -u root -e "create database test_app default charset utf8"
 
 #
 # Composer
