@@ -52,7 +52,7 @@ if (!defined('APP_DIR')) {
  * The following line differs from its sibling
  * /app/webroot/test.php
  */
-define('CAKE_CORE_INCLUDE_PATH', __DIR__.'/../../vendor/cakephp/cakephp/lib');
+//define('CAKE_CORE_INCLUDE_PATH', ROOT . DS . 'lib');
 
 /**
  * Editing below this line should not be necessary.

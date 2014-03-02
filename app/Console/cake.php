@@ -25,8 +25,8 @@ if (function_exists('ini_set')) {
 	$root = dirname(dirname(dirname(__FILE__)));
 
 	// the following line differs from its sibling
-	// /app/Console/cake.php
-	ini_set('include_path', $root . PATH_SEPARATOR .  $ds . 'Users' . $ds . 'shin' . $ds . 'Dropbox' . $ds . 'shin1x1' . $ds . 'sandbox' . $ds . 'vagrant' . $ds . 'cakephp' . $ds . 'vendor' . $ds . 'cakephp' . $ds . 'cakephp' . $ds . 'lib' . PATH_SEPARATOR . ini_get('include_path'));
+	// /lib/Cake/Console/Templates/skel/Console/cake.php
+	ini_set('include_path', $root . $ds . 'lib' . PATH_SEPARATOR . ini_get('include_path'));
 }
 
 if (!include ($dispatcher)) {
