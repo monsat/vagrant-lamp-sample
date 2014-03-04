@@ -3,6 +3,8 @@
     "installer-paths": {
       "app/Plugin/Migrations": ["cakedc/migrations"],
       "app/Plugin/Users": ["cakedc/users"],
+      "app/Plugin/Search": ["cakedc/search"],
+      "app/Plugin/Utils": ["cakedc/utils"],
       "app/Plugin/Datasources": ["cakephp/datasources"],
       "app/Plugin/DebugKit": ["cakephp/debug_kit"]
     }
@@ -12,6 +14,8 @@
     "ext-mcrypt": "*",
     "cakedc/migrations": "2.2.*",
     "cakedc/users": "2.0.*",
+    "cakedc/search": "2.2.*",
+    "cakedc/utils": "1.4.*",
     "cakephp/datasources": "2.3.x-dev",
     "cakephp/debug_kit": "2.2.*@dev",
     "cakephp/cakephp" : "2.4.5"
