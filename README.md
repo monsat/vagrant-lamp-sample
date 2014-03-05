@@ -30,5 +30,5 @@ http://192.168.33.40/
 
 You need to
 
-- <s>change security salt and security cipher seed on app/Config/core.php</s>(Now, baking project is working)
+- ~~change security salt and security cipher seed on app/Config/core.php~~ (Now, baking project is working)
 - change hostname and vbname on vagrant/Vagrantfile
