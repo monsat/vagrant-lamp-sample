@@ -1,26 +1,19 @@
 {
-  "extra": {
-    "installer-paths": {
-      "app/Plugin/Migrations": ["cakedc/migrations"],
-      "app/Plugin/Users": ["cakedc/users"],
-      "app/Plugin/Search": ["cakedc/search"],
-      "app/Plugin/Utils": ["cakedc/utils"],
-      "app/Plugin/Datasources": ["cakephp/datasources"],
-      "app/Plugin/DebugKit": ["cakephp/debug_kit"]
-    }
-  },
   "require" : {
-    "php": ">=5.2",
-    "ext-mcrypt": "*",
-    "cakedc/migrations": "2.2.*",
-    "cakedc/users": "2.0.*",
-    "cakedc/search": "2.2.*",
-    "cakedc/utils": "1.4.*",
-    "cakephp/datasources": "2.3.x-dev",
-    "cakephp/debug_kit": "2.2.*@dev",
-    "cakephp/cakephp" : "2.4.*"
+    "cakephp/cakephp" : "3.0.*-dev",
+    "cakephp/app" : "dev-master",
+    "php": ">=5.4"
   },
   "require-dev": {
     "phpunit/phpunit": "3.7.*"
+  },
+  "autoload": {
+    "psr-0": {
+      "App\\": ".",
+      "": "./Plugin"
+    }
+  },
+  "scripts": {
+    "post-install-cmd": "App\\Console\\Installer::postInstall"
   }
 }
