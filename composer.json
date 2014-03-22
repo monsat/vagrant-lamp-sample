@@ -1,6 +1,6 @@
 {
   "require" : {
-    "cakephp/cakephp" : "3.0.*-dev",
+    "cakephp/cakephp" : "3.0.x-dev",
     "cakephp/app" : "dev-master",
     "php": ">=5.4"
   },
