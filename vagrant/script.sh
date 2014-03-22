@@ -27,7 +27,7 @@ yum -y install ntp
 #
 # php
 #
-yum -y install php54 php54-cli php54-pdo php54-mbstring php54-mcrypt php54-pecl-memcache php54-mysql php54-devel php54-common php54-pgsql php54-pear php54-gd php54-xml php54-pecl-xdebug php54-pecl-apc
+yum -y install php54 php54-cli php54-pdo php54-mbstring php54-mcrypt php54-pecl-memcache php54-pecl-memcached php54-mysql php54-devel php54-common php54-pgsql php54-pear php54-gd php54-xml php54-pecl-xdebug php54-pecl-apc php54-mcrypt
 touch /var/log/php.log && chmod 666 /var/log/php.log
 cp -a /vagrant/php.ini /etc/php.ini
 
@@ -35,10 +35,29 @@ cp -a /vagrant/php.ini /etc/php.ini
 #
 # Apache
 #
-cp -a /vagrant/httpd.conf /etc/httpd/conf/
-/sbin/service httpd restart
-/sbin/chkconfig httpd on
+#cp -a /vagrant/httpd.conf /etc/httpd/conf/
+#/sbin/service httpd restart
+#/sbin/chkconfig httpd on
 
+
+#
+# Nginx
+#
+rpm -ivh http://nginx.org/packages/centos/6/noarch/RPMS/nginx-release-centos-6-0.el6.ngx.noarch.rpm
+yum install -y nginx
+cp -a /vagrant/nginx.conf /etc/nginx/conf.d/default.conf
+/sbin/service nginx restart
+/sbin/chkconfig nginx on
+
+
+#
+# PHP-FPM
+#
+yum install -y php54-fpm
+sed -i "s/^\user.*$/user = nginx/g" /etc/php-fpm.d/www.conf
+sed -i "s/^\group.*$/group = nginx/g" /etc/php-fpm.d/www.conf
+/sbin/service php-fpm restart
+/sbin/chkconfig php-fpm on
 
 #
 # PostgreSQL
@@ -77,6 +96,15 @@ yum -y install mysql-community-server
 
 mysql -u root -e "create database app default charset utf8"
 mysql -u root -e "create database test_app default charset utf8"
+
+
+#
+# Memcached
+#
+yum -y install memcached
+/sbin/chkconfig memcached on
+/sbin/service memcached restart
+
 
 #
 # Composer
