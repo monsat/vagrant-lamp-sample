@@ -74,6 +74,7 @@ mysql -u root -e "GRANT ALL PRIVILEGES ON *.* TO 'my_app'@'localhost' IDENTIFIED
 #
 # Composer
 #
+export COMPOSER_PROCESS_TIMEOUT=10800
 if [ -f /share/composer.json ]; then
   cd /share && curl -s http://getcomposer.org/installer | php
   yes "n" | /usr/bin/php /share/composer.phar create-project -s dev cakephp/app app
