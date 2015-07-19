@@ -6,7 +6,7 @@ VAGRANTFILE_API_VERSION = "2"
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.box = "centos64_ja"
-  config.vm.box_url = "https://dl.dropboxusercontent.com/u/3657281/centos64_ja.box"
+  config.vm.box_url = "http://developer.nrel.gov/downloads/vagrant-boxes/CentOS-6.5-x86_64-v20140110.box"
   config.vm.hostname = "lamp-sample"
 
   config.vm.network :private_network, ip: "192.168.33.40"

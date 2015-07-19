@@ -11,6 +11,7 @@
 #
 # yum repository
 #
+yum update -y ca-certificates
 rpm -ivh http://ftp.riken.jp/Linux/fedora/epel/6/i386/epel-release-6-8.noarch.rpm
 rpm -ivh http://dl.iuscommunity.org/pub/ius/stable/CentOS/6/x86_64/ius-release-1.0-11.ius.centos6.noarch.rpm
 #yum -y update
