@@ -49,6 +49,11 @@ cp -a /vagrant/httpd.conf /etc/httpd/conf/
 /sbin/service httpd restart
 /sbin/chkconfig httpd on
 
+#
+# postfix
+#
+yum -y install postfix
+/sbin/chkconfig postfix on
 
 #
 # PostgreSQL
