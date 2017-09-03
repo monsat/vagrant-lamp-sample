@@ -64,8 +64,8 @@ class DATABASE_CONFIG {
 	public $default = [
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'login' => 'root',
-		'password' => '',
+		'login' => 'appuser',
+		'password' => 'apppassword',
 		'database' => 'app',
 		'prefix' => '',
 		'encoding' => 'utf8',
@@ -78,8 +78,8 @@ class DATABASE_CONFIG {
 	public $test = [
 		'datasource' => 'Database/Mysql',
 		'persistent' => false,
-		'login' => 'root',
-		'password' => '',
+		'login' => 'appuser',
+		'password' => 'apppassword',
 		'database' => 'app_test',
 		'prefix' => '',
 		'encoding' => 'utf8',

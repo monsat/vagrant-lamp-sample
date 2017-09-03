@@ -1,6 +1,13 @@
 #!/bin/sh
 
 #
+# epel remi repository
+# add to install php5.6
+#
+rpm -Uvh http://ftp.iij.ad.jp/pub/linux/fedora/epel/6/x86_64/epel-release-6-8.noarch.rpm
+rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+
+#
 # iptables off
 #
 /sbin/iptables -F
@@ -26,16 +33,18 @@ yum -y install ntp
 
 
 #
-# php
+# php(5.6)
 #
-yum -y install php54 php54-cli php54-pdo php54-mbstring php54-mcrypt php54-pecl-memcache php54-mysql php54-devel php54-common php54-pgsql php54-pear php54-gd php54-xml php54-pecl-xdebug php54-pecl-apc
+yum install -y --enablerepo=remi --enablerepo=remi-php56 php php-cli php-pdo php-opcache php-devel php-mbstring php-mcrypt php54-pecl-memcache php-mysqlnd php-phpunit-PHPUnit php-pecl-xdebug php-pecl-xhprof php-common php-pgsql  php-pear php-gd php-xml php-pecl-apcu php-opcache
 touch /var/log/php.log && chmod 666 /var/log/php.log
-cp -a /vagrant/php.ini /etc/php.ini
+# versionを5.4から5.6に更新するにあたり必要な変更があるため一旦コメントアウトする。
+# cp -a /vagrant/php.ini /etc/php.ini
 
 
 #
 # Apache
 #
+yum -y install httpd
 cp -a /vagrant/httpd.conf /etc/httpd/conf/
 /sbin/service httpd restart
 /sbin/chkconfig httpd on
@@ -76,8 +85,11 @@ yum -y install mysql-community-server
 /sbin/service mysqld restart
 /sbin/chkconfig mysqld on
 
+mysql -u root -e "create user 'appuser'@'localhost' identified by 'apppassword'"
 mysql -u root -e "create database app default charset utf8"
 mysql -u root -e "create database test_app default charset utf8"
+mysql -u root -e "grant all on app.* to appuser identified by 'apppassword'"
+mysql -u root -e "grant all on test_app.* to appuser identified by 'apppassword'"
 
 #
 # Composer
@@ -95,6 +107,7 @@ if [ -f /share/composer.json ]; then
   mv /share/Plugin/* /share/app/Plugin
   cp -a /share/cake/database.php.default /share/app/Config/database.php
   cp -a /share/cake/bootstrap.php.default /share/app/Config/bootstrap.php
-  #cp -a /share/cake/email.php.default /share/app/Config/email.php
+  cp -a /share/cake/email.php.default /share/app/Config/email.php
+  cp -a /share/cake/core.php /share/app/Config/core.php # xdebug installのためcore.phpでdatetimeを設定する
 fi
 
